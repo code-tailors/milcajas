@@ -1,0 +1,11 @@
+<div class="hero-unit">
+        <h1>Toma Mi Caja!</h1>
+        <p>Un día Tute se levanto y penso que sería genial poder compartir stuff con Dropbox.</p>
+        <p>Publicar un indice con lo que ofrezco y buscar en las carpetas de los demás. </p>
+        <p>Así nació Toma Mi Caja. Desplegado en más de cincuenta paises, en 12 idiomas y con más de cien mil usuarios.</p>
+        <p><% if current_user %>
+          <%= link_to "Ver tu Caja", dropbox_path %>
+        <% else %>
+          <%= link_to "Accede con Dropbox", access_path %>
+        <% end %></p>
+</div>

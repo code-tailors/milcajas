@@ -1,0 +1,28 @@
+<%= link_to "Refresh", refresh_dropbox_path,  class: "btn btn-primary" %>
+
+<table class="table">
+  <caption>Todos los archivos de todas las cajas</caption>
+  <thead>
+    <tr>
+      <th>Nombre  </th>
+      <th>Tamaño  </th>
+      <th>Tipo    </th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.path %></td>
+        <td><%= item.size %></td>
+        <td><%= item.mime_type %></td>
+        <% mine = item.user_ids.include?(current_user.id) %>
+        <td> <%#= link_to "Copiar a mi Caja",  mine ? "#" : copy_dropbox_path, class: "btn btn-mini btn-success",
+              method: :post, remote: true, disabled: mine %></td>
+        <td> <%= link_to "Copiar a mi Caja", copy_dropbox_path, class: "btn btn-mini btn-success",
+              method: :post, remote: true%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
