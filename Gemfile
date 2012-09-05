@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-sdk.git"
+gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", require: "dropbox_sdk"
 gem 'omniauth'
 gem 'omniauth-dropbox'
 gem 'pg'
@@ -16,7 +16,6 @@ end
 
 group :development, :test do
   gem 'debugger'
-  gem 'sqlite3'
 end
 
 

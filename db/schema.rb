@@ -48,4 +48,6 @@ ActiveRecord::Schema.define(:version => 20120904205838) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "users", ["uid"], :name => "index_users_on_uid"
+
 end

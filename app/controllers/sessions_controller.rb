@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
 
-
   def new
-    dbsession = DropboxSession.new APP_KEY, APP_SECRET
+    dbsession = ::DropboxSession.new APP_KEY, APP_SECRET
     if dbsession.authorized?
       redirect_to refresh_dropbox_url, notice: "Signed in!"
     else
