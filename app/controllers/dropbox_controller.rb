@@ -12,8 +12,8 @@ class DropboxController < ApplicationController
       changes = current_user.dropbox.delta current_user.delta_cursor
       changes["entries"].each do |entry|
         if entry[1].nil?
-          item = Item.where(path: entry[0])
-          item.delete current_user if item
+          item = current_user.items.where(path: entry[0]).first
+          item.destroy if item
         else
           unless entry[1]["is_dir"]
             path = entry[0]
