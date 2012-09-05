@@ -3,9 +3,10 @@ Sharebox::Application.routes.draw do
   resource :dropbox, :path => :caja, :controller => :dropbox do
     #match :authorize
     #match :callback
-    match :upload
-    get   :refresh
-    post  :copy
+    match   :upload
+    get     :refresh
+    post    :copy
+    delete  :reset
   end
 
   match 'auth/:provider/callback', to: 'sessions#create'

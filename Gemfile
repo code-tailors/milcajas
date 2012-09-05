@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'dropbox-sdk'
+gem 'dropbox-sdk', git: "git@github.com:blanchma/dropbox-sdk.git"
 gem 'omniauth'
 gem 'omniauth-dropbox'
-gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
 
 group :assets do
@@ -16,6 +16,7 @@ end
 
 group :development, :test do
   gem 'debugger'
+  gem 'sqlite3'
 end
 
 

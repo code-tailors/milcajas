@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   validate :uid, presence: true
 
-  has_and_belongs_to_many :items
+  has_and_belongs_to_many :items,
+    #:after_add => :cuack,
+    :after_remove => :remove_orphans
 
   def self.from_omniauth(auth)
     where(auth.slice("uid")).first || create_from_omniauth(auth)
@@ -21,5 +23,10 @@ class User < ActiveRecord::Base
     dbsession = DropboxSession.new(APP_KEY, APP_SECRET)
     dbsession.set_access_token self.token, self.secret
     DropboxClient.new dbsession, :app_folder
+  end
+
+  private
+  def remove_orphans(item)
+    item.destroy if item.users.count == 0
   end
 end

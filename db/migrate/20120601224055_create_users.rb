@@ -12,5 +12,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :delta_cursor
       t.timestamps
     end
+
+    add_index :users, :uid
   end
 end
