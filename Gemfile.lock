@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:blanchma/dropbox-sdk.git
+  remote: git://github.com/blanchma/dropbox-sdk.git
   revision: 97f019b93736a33667ff39304c4e97735d93da94
   specs:
     dropbox-sdk (1.5.1)
