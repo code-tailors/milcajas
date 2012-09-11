@@ -1,35 +1,20 @@
 require 'dropbox_sdk'
 
 class DropboxController < ApplicationController
+  before_filter :authenticate_user!
 
   def reset
-    current_user.update_attribute(:delta_cursor, nil)
-    current_user.items.delete_all
-    redirect_to action: :refresh
+    current_user.reset_items
+    redirect_to action: :show
   end
 
   def refresh
-      changes = current_user.dropbox.delta current_user.delta_cursor
-      changes["entries"].each do |entry|
-        if entry[1].nil?
-          item = current_user.items.where(path: entry[0]).first
-          item.destroy if item
-        else
-          unless entry[1]["is_dir"]
-            path = entry[0]
-            name = path.split("/").last
-            item = Item.create(name: name, path: path, size: entry[1]["size"], mime_type: entry[1]["mime_type"] )
-            item.users << current_user
-          end
-        end
-      end
-      current_user.update_attribute(:delta_cursor, changes["cursor"])
-
-      redirect_to action: :show
+    current_user.refresh_items
+    redirect_to action: :show
   end
 
   def show
-    @items = Item.all
+    @items = Item.uniques
   end
 
   def copy
@@ -38,6 +23,11 @@ class DropboxController < ApplicationController
     copy_ref = from_user_db.create_copy_ref(item.path)['copy_ref']
     current_user.dropbox.add_copy_ref(item.name, copy_ref)
     head :ok
+  end
+
+  private
+  def authenticate_user!
+    redirect_to root_path unless session[:user_id]
   end
 
 end

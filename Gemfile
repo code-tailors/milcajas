@@ -12,10 +12,18 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'twitter-bootstrap-rails'
+  gem 'bourbon'
 end
 
 group :development, :test do
   gem 'debugger'
+end
+
+group :test do
+  #gem 'capybara_minitest_spec'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'turn'
 end
 
 

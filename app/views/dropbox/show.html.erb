@@ -18,7 +18,6 @@
         <td><%= item.name %></td>
         <td><%= item.size %></td>
         <td><%= item.mime_type %></td>
-        <% mine = item.user_ids.include?(current_user.id) %>
         <td> <%#= link_to "Copiar a mi Caja",  mine ? "#" : copy_dropbox_path, class: "btn btn-mini btn-success",
               method: :post, remote: true, disabled: mine %>
          <%= link_to "Copiar a mi Caja", copy_dropbox_path(id: item.id), class: "btn btn-mini btn-success",

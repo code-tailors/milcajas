@@ -11,15 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904205838) do
+ActiveRecord::Schema.define(:version => 20120906150213) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories_items", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "item_id"
+  end
 
   create_table "items", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.string   "path"
     t.string   "size"
     t.string   "mime_type"
     t.string   "description"
     t.string   "tags"
+    t.string   "checksum"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -27,13 +40,6 @@ ActiveRecord::Schema.define(:version => 20120904205838) do
   add_index "items", ["name"], :name => "index_items_on_name"
   add_index "items", ["path"], :name => "index_items_on_path"
   add_index "items", ["tags"], :name => "index_items_on_tags"
-
-  create_table "items_users", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "item_id"
-  end
-
-  add_index "items_users", ["user_id", "item_id"], :name => "index_items_users_on_user_id_and_item_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"
