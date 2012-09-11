@@ -1,5 +1,3 @@
-require 'dropbox_sdk'
-
 class ItemsController < ApplicationController
   before_filter :authenticate_user!
 

@@ -1,7 +1,5 @@
-APP_KEY = "ctneuigl2zz6urw"
-APP_SECRET = "cq93sx2x5b7eapc"
 ACCESS_TYPE = :app_folder
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :dropbox, APP_KEY, APP_SECRET
+  provider :dropbox, ENV['APP_KEY'], ENV['APP_SECRET']
 end
