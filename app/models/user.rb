@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validate :uid, presence: true
+  validate :uid, presence: true, unique: true
 
   #has_and_belongs_to_many :items,
     #:after_add => :cuack,

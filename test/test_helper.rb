@@ -4,6 +4,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require "minitest/autorun"
 require "minitest/rails"
 require "minitest/rails/capybara"
+require "capybara"
+require 'vcr'
 require "minitest/pride"
 
 class MiniTest::Rails::ActiveSupport::TestCase
@@ -13,9 +15,20 @@ class MiniTest::Rails::ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-# Do you want all existing Rails tests to use MiniTest::Rails?
-# Comment out the following and either:
-# A) Change the require on the existing tests to `require "minitest_helper"`
-# B) Require this file's code in test_helper.rb
 
-# MiniTest::Rails.override_testunit!
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock # or :fakeweb
+end
+
+
+ OmniAuth.config.mock_auth[:dropbox] = OmniAuth::AuthHash.new ({
+    :provider => 'dropbox',
+    :uid      => '123545',
+    :secret   => 'agent',
+    :token    => 'test_token',
+    :info     => {
+      :email   => 'superman@justiceleague.com',
+      :name    => 'Superman'
+    }
+  })

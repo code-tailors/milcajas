@@ -1,6 +1,5 @@
 Sharebox::Application.routes.draw do
-  resources :items
-  resource :dropbox, :path => :caja, :controller => :dropbox do
+  resource :dropbox, :path => :caja, :controller => :items do
     #match :authorize
     #match :callback
     match   :upload

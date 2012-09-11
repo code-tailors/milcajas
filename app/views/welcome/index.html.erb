@@ -29,20 +29,15 @@
       <div class="hero-unit step3 thumbnail steps">
         <h4>Paso 3</h4>
         <p>Busca lo que te guste en MilCajas y copialo a tu Dropbox con un solo click</p>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="row-fluid ">
-  <div class="span6 offset4">
-    <p><% if current_user %>
+        <p><% if current_user %>
           <%= link_to dropbox_path, :class => "btn btn-large btn-success", :id => "gotopanel" do %>
               Buscar en Mil Cajas
           <% end %>
         <% else %>
           <%= link_to "Accede con Dropbox", access_path, :id => "access", :class => "btn btn-large btn-primary" %>
         <% end %></p>
+    </div>
+
   </div>
+
 </div>

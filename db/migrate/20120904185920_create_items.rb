@@ -12,8 +12,8 @@ class CreateItems < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :items, :path
+    add_index :items, :user_id
     add_index :items, :tags
-    add_index :items, :name
+    add_index :items, :checksum
   end
 end

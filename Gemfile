@@ -5,6 +5,7 @@ gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", requir
 gem 'omniauth'
 gem 'omniauth-dropbox'
 gem 'pg'
+
 gem 'jquery-rails'
 
 group :assets do
@@ -24,6 +25,9 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'turn'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'capybara_minitest_spec'
 end
 
 
