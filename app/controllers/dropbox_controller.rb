@@ -19,7 +19,7 @@ class DropboxController < ApplicationController
 
   def copy
     item = Item.find params[:id]
-    from_user_db = item.users.first.dropbox
+    from_user_db = item.user.dropbox
     copy_ref = from_user_db.create_copy_ref(item.path)['copy_ref']
     current_user.dropbox.add_copy_ref(item.name, copy_ref)
     head :ok
