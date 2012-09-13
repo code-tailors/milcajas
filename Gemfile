@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git"
+gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", require: "dropbox_sdk"
 gem 'omniauth'
 gem 'omniauth-dropbox'
 gem 'pg'
@@ -26,8 +26,8 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'turn'
-  gem 'vcr'
-  gem 'webmock'
+  #gem 'vcr'
+  #gem 'webmock'
   gem 'capybara_minitest_spec'
 end
 

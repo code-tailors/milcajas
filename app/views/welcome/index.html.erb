@@ -30,7 +30,7 @@
         <h4>Paso 3</h4>
         <p>Busca lo que te guste en MilCajas y copialo a tu Dropbox con un solo click</p>
         <p><% if current_user %>
-          <%= link_to dropbox_path, :class => "btn btn-large btn-success", :id => "gotopanel" do %>
+          <%= link_to items_path, :class => "btn btn-large btn-success", :id => "gotopanel" do %>
               Buscar en Mil Cajas
           <% end %>
         <% else %>

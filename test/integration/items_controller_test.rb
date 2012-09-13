@@ -8,10 +8,12 @@ describe ItemsController do
   end
 
   it "can sign up" do
-    #VCR.use_cassette('synopsis') do
     visit root_path
     assert page.has_content? "Mil Cajas"
-    #end
+    click_link "Accede con Dropbox"
+    assert page.has_content? "Mil Cajas"
+    click_link "Reset"
+    Item.count.must_be :>, 0
   end
 
 end

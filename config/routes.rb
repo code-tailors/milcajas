@@ -1,20 +1,14 @@
 Sharebox::Application.routes.draw do
-  resource :dropbox, :path => :caja, :controller => :items do
-    #match :authorize
-    #match :callback
-    match   :upload
-    get     :refresh
-    post    :copy
-    delete  :reset
+  resources :items, :path => :caja do
+    post    :copy, on: :member
+    get     :refresh, on: :collection
+    delete  :reset, on: :collection
   end
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'access', to: 'sessions#new', as: 'access'
-
-  resource :welcome
-  resource :dropbox
 
   root to: "welcome#index"
 end

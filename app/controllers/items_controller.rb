@@ -3,15 +3,15 @@ class ItemsController < ApplicationController
 
   def reset
     current_user.reset_items
-    redirect_to action: :show
+    redirect_to action: :index
   end
 
   def refresh
     current_user.refresh_items
-    redirect_to action: :show
+    redirect_to action: :index
   end
 
-  def show
+  def index
     @items = Item.uniques
   end
 
@@ -23,9 +23,5 @@ class ItemsController < ApplicationController
     head :ok
   end
 
-  private
-  def authenticate_user!
-    redirect_to root_path unless session[:user_id]
-  end
 
 end

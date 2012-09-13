@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validate :uid, presence: true, unique: true
+  validates :uid, presence: true, uniqueness: true
 
   #has_and_belongs_to_many :items,
     #:after_add => :cuack,
@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
 
   def dropbox
-    dbsession = DropboxSession.new(APP_KEY, APP_SECRET)
+    dbsession = DropboxSession.new(ENV['APP_KEY'], ENV['APP_SECRET'])
     dbsession.set_access_token self.token, self.secret
     DropboxClient.new dbsession, :app_folder
   end

@@ -12,7 +12,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def get_dropbox_session
-    $db_session ||= DropboxSession.new(APP_KEY, APP_SECRET)
+    $db_session ||= DropboxSession.new(ENV['APP_KEY'], ENV['APP_SECRET'])
   end
+
+  private
+  def authenticate_user!
+    redirect_to root_path unless session[:user_id]
+  end
+
 
 end

@@ -5,7 +5,7 @@ require "minitest/autorun"
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "capybara"
-require 'vcr'
+#require 'vcr'
 require "minitest/pride"
 
 class MiniTest::Rails::ActiveSupport::TestCase
@@ -16,19 +16,21 @@ class MiniTest::Rails::ActiveSupport::TestCase
 end
 
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  c.hook_into :webmock # or :fakeweb
-end
+# VCR.configure do |c|
+#   c.cassette_library_dir = 'fixtures/vcr_cassettes'
+#   c.hook_into :webmock # or :fakeweb
+# end
 
 
  OmniAuth.config.mock_auth[:dropbox] = OmniAuth::AuthHash.new ({
-    :provider => 'dropbox',
-    :uid      => '123545',
-    :secret   => 'agent',
-    :token    => 'test_token',
+    :provider => "dropbox",
+    :uid      => 3810241,
+    :credentials => {
+      :secret   => "u7mnci2j45y7dvd",
+      :token    => "6gx2428ks90zvti"
+    },
     :info     => {
-      :email   => 'superman@justiceleague.com',
-      :name    => 'Superman'
+      :email   => "superman@justiceleague.com",
+      :name    => "Superman"
     }
   })
