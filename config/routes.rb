@@ -10,5 +10,6 @@ Sharebox::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'access', to: 'sessions#new', as: 'access'
 
-  root to: "welcome#index"
+  match '/', to: 'welcome#index', as: 'home'
+  root to: 'welcome#index'
 end

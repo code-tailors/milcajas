@@ -29,6 +29,8 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'capybara_minitest_spec'
+  gem 'random_data'
+  gem 'capybara-webkit'
 end
 
 

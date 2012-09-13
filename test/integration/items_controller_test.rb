@@ -2,6 +2,7 @@ require 'test_helper'
 
 describe ItemsController do
   include Capybara::DSL
+  include UserHelper
 
   before do
     request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:dropbox]
@@ -20,6 +21,9 @@ describe ItemsController do
       click_link "Reset"
     end
     Item.count.must_be :>, 0
+    current_user.wont_be_nil
+    # page.have_selector("table.all_items tbody tr#{Item.first.id}")
+    # page.have_selector('table.all_items tbody tr')
   end
 
 end

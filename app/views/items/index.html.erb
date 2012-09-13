@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <% @items.each do |item| %>
-      <tr>
+      <tr id="<%= item.id %>" >
         <td><%= item.name %> <%= item.user_id == current_user.id ? content_tag(:span, "tuyo",class: "label label-success") : nil %></td>
         <td><%= item.size %></td>
         <td><%= item.mime_type %></td>

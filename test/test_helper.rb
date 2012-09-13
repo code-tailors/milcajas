@@ -19,6 +19,8 @@ end
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
   c.hook_into :webmock # or :fakeweb
+  #allow_http_connections_when_no_cassette = true
+  c.ignore_localhost = true
 end
 
 
@@ -26,7 +28,7 @@ end
     :provider => "dropbox",
     :uid      => 3810241,
     :credentials => {
-      :secret   => "au7mnci2j45y7dvd",
+      :secret   => "u7mnci2j45y7dvd",
       :token    => "6gx2428ks90zvti"
     },
     :info     => {
@@ -34,3 +36,9 @@ end
       :name    => "Superman"
     }
   })
+
+#Support JS
+#Capybara.default_driver = :selenium
+Capybara.default_driver =  :webkit
+
+Dir[Rails.root.join("test/support/**/*.rb")].each {|f| require f}
