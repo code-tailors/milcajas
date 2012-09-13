@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(:version => 20120906150213) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "items", ["name"], :name => "index_items_on_name"
-  add_index "items", ["path"], :name => "index_items_on_path"
+  add_index "items", ["checksum"], :name => "index_items_on_checksum"
   add_index "items", ["tags"], :name => "index_items_on_tags"
+  add_index "items", ["user_id"], :name => "index_items_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
