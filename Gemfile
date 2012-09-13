@@ -26,8 +26,8 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'turn'
-  #gem 'vcr'
-  #gem 'webmock'
+  gem 'vcr'
+  gem 'webmock'
   gem 'capybara_minitest_spec'
 end
 

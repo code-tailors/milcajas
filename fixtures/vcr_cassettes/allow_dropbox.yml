@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/delta?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OfficialDropboxRubySDK/1.5.1
+      Authorization:
+      - OAuth oauth_version="1.0", oauth_signature_method="PLAINTEXT", oauth_consumer_key="ctneuigl2zz6urw",
+        oauth_token="6gx2428ks90zvti", oauth_signature="cq93sx2x5b7eapc&u7mnci2j45y7dvd"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.3
+      Date:
+      - Thu, 13 Sep 2012 00:15:53 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"reset": true, "cursor": "Am_zvCBT3G4GTctpuU8YSVTyj_SG3FnUzhjOv62KI8qMeJxjsFI-yMBYEML5IUeSgYFBG4gZAC7IA40",
+        "has_more": false, "entries": [["/feriados.gif", {"revision": 1, "rev": "109f06c19",
+        "thumb_exists": true, "bytes": 60994, "modified": "Tue, 04 Sep 2012 15:22:58
+        +0000", "client_mtime": "Tue, 06 Dec 2011 12:44:59 +0000", "path": "/feriados.gif",
+        "is_dir": false, "icon": "page_white_picture", "root": "app_folder", "mime_type":
+        "image/gif", "size": "59.6 KB"}], ["/carpetita", {"revision": 4, "rev": "409f06c19",
+        "thumb_exists": false, "bytes": 0, "modified": "Tue, 04 Sep 2012 20:20:58
+        +0000", "path": "/carpetita", "is_dir": true, "icon": "folder_app", "root":
+        "app_folder", "size": "0 bytes"}], ["/carpetita/video may 08, 23 02 33.mp4",
+        {"revision": 9, "rev": "909f06c19", "thumb_exists": false, "bytes": 3250690,
+        "modified": "Tue, 04 Sep 2012 20:36:41 +0000", "client_mtime": "Wed, 09 May
+        2012 12:32:58 +0000", "path": "/carpetita/Video May 08, 23 02 33.mp4", "is_dir":
+        false, "icon": "page_white_film", "root": "app_folder", "mime_type": "video/mp4",
+        "size": "3.1 MB"}], ["/vi-help-sheet-011.pdf", {"revision": 12, "rev": "c09f06c19",
+        "thumb_exists": false, "bytes": 549897, "modified": "Tue, 04 Sep 2012 21:56:45
+        +0000", "client_mtime": "Wed, 18 Apr 2012 04:22:28 +0000", "path": "/VI-Help-Sheet-011.pdf",
+        "is_dir": false, "icon": "page_white_acrobat", "root": "app_folder", "mime_type":
+        "application/pdf", "size": "537 KB"}], ["/video may 08, 23 02 33.mp4", {"revision":
+        43, "rev": "2b09f06c19", "thumb_exists": false, "bytes": 3250690, "modified":
+        "Thu, 06 Sep 2012 19:07:06 +0000", "client_mtime": "Wed, 09 May 2012 12:32:58
+        +0000", "path": "/video may 08, 23 02 33.mp4", "is_dir": false, "icon": "page_white_film",
+        "root": "app_folder", "mime_type": "video/mp4", "size": "3.1 MB"}]]}'
+    http_version: 
+  recorded_at: Thu, 13 Sep 2012 00:15:54 GMT
+recorded_with: VCR 2.2.5
