@@ -17,6 +17,6 @@ development:
 test:
   adapter: postgresql
   database: milcajas_test
-  username: milcajas_user
+  username: postgres
   pool: 5
   timeout: 5000
