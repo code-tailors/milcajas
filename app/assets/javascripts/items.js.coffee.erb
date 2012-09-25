@@ -1,0 +1,15 @@
+$(document).ready ->
+  #Bind Category Dropdown
+  $(".js-category-dropdown").live('click', ->
+    cat_id = $(@).data('value')
+    item_id = $(@).parents('tr').first().attr('id')
+    console.log "Update category: '#{cat_id}' for item: '#{item_id}"
+
+    $.ajax({
+      url:  "/caja/#{item_id}",
+      type: 'POST',
+      data: {item: { category_id: cat_id}, _method: 'PUT'},
+      dataType: 'script'
+      })
+  )
+

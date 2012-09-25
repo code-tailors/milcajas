@@ -22,24 +22,20 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#">Mil Cajas</a>
-        <div class="nav-form pull-right">
-
-            <% if current_user %>
-
-             Hola <%= current_user.name %>!
-             <%= link_to "Salir", signout_path %>
-
-           <% end %>
-
+          <div class="nav-form pull-right">
+              <%- if current_user -%>
+               Hola <%= current_user.name %>!
+               <%= link_to "Salir", signout_path %>
+             <%- end -%>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+
   <div class="container-fluid">
     <%= yield %>
-
-    </div>
+  </div>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906150213) do
+ActiveRecord::Schema.define(:version => 20120917184856) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120906150213) do
     t.string   "checksum"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "category_id"
+    t.string   "category_as"
   end
 
   add_index "items", ["checksum"], :name => "index_items_on_checksum"

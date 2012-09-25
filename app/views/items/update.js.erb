@@ -1,0 +1,2 @@
+console.log($("tr#<%= @item.id %>").size() )
+$("tr#<%= @item.id %>").replaceWith('<%= escape_javascript(render @item) %>');

@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+1500.times do
+  Item.create(
+    size: Random.number(9999),
+    mime_type: ['test/gif', 'test/jpeg', 'test/pdf', 'test/mp4'].sample,
+    description: Random.paragraphs[0...150],
+    path: "#{Random.firstname}_#{Random.lastname}",
+    category_id: Category.all.sample.id)
+end

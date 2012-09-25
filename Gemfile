@@ -5,8 +5,9 @@ gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", requir
 gem 'omniauth'
 gem 'omniauth-dropbox'
 gem 'pg'
-
+gem 'texticle', "2.0", :require => 'texticle/rails'
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -19,6 +20,7 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'minitest-rails'
+  gem 'random_data'
 end
 
 group :test do
@@ -29,7 +31,6 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'capybara_minitest_spec'
-  gem 'random_data'
   gem 'capybara-webkit'
 end
 

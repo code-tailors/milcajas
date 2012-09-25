@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.string  :mime_type
       t.string  :description
       t.string  :tags
+      t.string  :category
       t.string  :checksum
       t.timestamps
     end

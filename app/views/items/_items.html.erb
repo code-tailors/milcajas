@@ -1,0 +1,17 @@
+<table class="table table-condensed">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th>Nombre  </th>
+      <th>Tamaño  </th>
+      <th>Tipo    </th>
+      <th>Categoria</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render items %>
+  </tbody>
+</table>
+
+<%= paginate items, remote: true  %>

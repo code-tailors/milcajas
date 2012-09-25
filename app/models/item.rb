@@ -1,10 +1,17 @@
 require 'digest/md5'
+require 'texticle/searchable'
 
 class Item < ActiveRecord::Base
-  attr_accessible :name, :description, :path, :size, :mime_type, :user_id
-  belongs_to :user
+  extend Searchable(:name, :description, :category_as, :tags)
+  paginates_per 100
 
-  scope :uniques, select("DISTINCT ON(checksum) id, name, path, size, mime_type, user_id")
+  attr_accessible :name, :description, :path, :size, :mime_type, :user_id, :category_id
+  belongs_to :user
+  belongs_to :category
+
+  scope :uniques, select("DISTINCT ON(checksum) id, name, path, size, mime_type, user_id, category_id").order("checksum, created_at")
+
+  validates :path, :size, presence: true
 
   before_create :set_name, :build_checksum
 
@@ -13,6 +20,23 @@ class Item < ActiveRecord::Base
   end
 
   def build_checksum
-    self.checksum = Digest::MD5.hexdigest(self.name.downcase + self.size)
+    self.checksum = Digest::MD5.hexdigest(self.name.downcase + self.size.to_s)
   end
+
+  def self.text_search(query,page=1,per=20)
+    if query.present?
+      result = search(query)
+      result.uniq!{|i| i.name }
+      result.page(page).per(per)
+    else
+      scoped
+    end
+  end
+
 end
+
+# rank = <<-RANK
+#   ts_rank(to_tsvector(name), plainto_tsquery(#{sanitize(query)})) +
+#   ts_rank(to_tsvector(content), plainto_tsquery(#{sanitize(query)}))
+# RANK
+# where("name @@ :q or content @@ :q", q: "%#{query}%").order("#{rank} desc")
