@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.string  :name
       t.string  :path
       t.string  :size
+      t.string  :bytes
       t.string  :mime_type
       t.string  :description
       t.string  :tags

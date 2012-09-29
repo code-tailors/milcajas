@@ -3,9 +3,9 @@ require 'texticle/searchable'
 
 class Item < ActiveRecord::Base
   extend Searchable(:name, :description, :category_as, :tags)
-  paginates_per 100
+  paginates_per 50
 
-  attr_accessible :name, :description, :path, :size, :mime_type, :user_id, :category_id
+  attr_accessible :name, :description, :path, :size, :mime_type, :user_id, :category_id, :bytes
   belongs_to :user
   belongs_to :category
 
@@ -20,7 +20,7 @@ class Item < ActiveRecord::Base
   end
 
   def build_checksum
-    self.checksum = Digest::MD5.hexdigest(self.name.downcase + self.size.to_s)
+    self.checksum = Digest::MD5.hexdigest(self.name.downcase + self.bytes.to_s)
   end
 
   def self.text_search(query,page=1,per=20)

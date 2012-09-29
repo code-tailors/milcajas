@@ -10,7 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <%= render items %>
+    <% if items.empty? %>
+      <tr><td class="non-results" colspan="5"><h4>No se encontraron resultados</h4></td></tr>
+    <% else %>
+      <%= render items %>
+    <% end %>
   </tbody>
 </table>
 

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!
-  respond_to :js, :only => [:update, :copy]
+  respond_to :html
+  respond_to :js, :only => [:index, :update, :copy]
 
   def reset
     current_user.reset_items
@@ -14,8 +15,13 @@ class ItemsController < ApplicationController
 
   def index
     #@yours = current_user.items.uniques
-    @others = Item.uniques.page(params[:page]) #- @yours
-    @categories = Category.all
+    if not params[:query].blank? and query = params[:query]
+      @others = Item.text_search(query,params[:page],50)
+      logger.debug "Results: #{@others.size}"
+    else
+      @others = Item.uniques.page(params[:page]) #- @yours
+    end
+      @categories = Category.all
   end
 
   def copy

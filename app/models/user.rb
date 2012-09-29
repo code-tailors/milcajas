@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
       else
         unless entry[1]["is_dir"]
           path = entry[0]
-          item = Item.create(path: path, size: entry[1]["size"], mime_type: entry[1]["mime_type"], user_id: id)
+          item = Item.create(path: path, bytes: entry[1]["bytes"], size: entry[1]["size"], mime_type: entry[1]["mime_type"], user_id: id)
         end
       end
     end
