@@ -13,7 +13,7 @@
 
 <%= form_tag items_path, method: :get, class: 'form-inline', remote: true do %>
   <div class="input-append">
-    <%= text_field_tag :query, "", placeholder: "...", class: "span3", id: "appendedInputButtons", size: "30", type: "text" %>
+    <%= text_field_tag :query, "", placeholder: "...", class: "span3", id: "search_field", size: "30", type: "text" %>
     <%= submit_tag "Buscar", class: "btn btn-success" %>
   </div>
 <% end %>
@@ -21,3 +21,4 @@
 <div id="others">
   <%= render :partial => "items", :object => @others %>
 </div>
+

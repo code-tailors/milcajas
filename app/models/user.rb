@@ -30,7 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    where("uid = '?'", auth.uid).first || create_from_omniauth(auth)
+    (user = where("uid = '?'", auth.uid).first and user.update_from_omniauth(auth) and user) || create_from_omniauth(auth)
+  end
+
+  def update_from_omniauth(auth)
+      self.update_attributes(token: auth.credentials.token,
+      secret: auth.credentials.secret)
   end
 
   def self.create_from_omniauth(auth)

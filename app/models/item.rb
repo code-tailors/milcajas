@@ -1,9 +1,11 @@
 require 'digest/md5'
-require 'texticle/searchable'
 
 class Item < ActiveRecord::Base
-  extend Searchable(:name, :description, :category_as, :tags)
+#  extend Searchable(:name, :description, :category_as, :tags)
   paginates_per 50
+
+  #include PgSearch
+  #pg_search_scope :search, against: [:name, :category_as, :tags]
 
   attr_accessible :name, :description, :path, :size, :mime_type, :user_id, :category_id, :bytes
   belongs_to :user
@@ -11,7 +13,7 @@ class Item < ActiveRecord::Base
 
   scope :uniques, select("DISTINCT ON(checksum) id, name, path, size, mime_type, user_id, category_id").order("checksum, created_at")
 
-  validates :path, :size, presence: true
+  validates :path, :bytes, presence: true
 
   before_create :set_name, :build_checksum
 
@@ -25,9 +27,7 @@ class Item < ActiveRecord::Base
 
   def self.text_search(query,page=1,per=20)
     if query.present?
-      result = search(query)
-      result.uniq!{|i| i.name }
-      result.page(page).per(per)
+      uniques.where('name ILIKE :search OR description ILIKE :search OR tags ILIKE :search', search: "%#{query}%").page(page).per(per)
     else
       scoped
     end

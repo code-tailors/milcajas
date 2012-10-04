@@ -5,7 +5,7 @@ gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", requir
 gem 'omniauth'
 gem 'omniauth-dropbox'
 gem 'pg'
-gem 'texticle', "2.0", :require => 'texticle/rails'
+gem 'pg_search'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'bourbon'
