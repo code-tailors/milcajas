@@ -1,9 +1,12 @@
 Sharebox::Application.routes.draw do
-  resources :items, :path => :caja do
+  resources :items, path: :caja do
     post    :copy, on: :member
     get     :refresh, on: :collection
     delete  :reset, on: :collection
+    post    :denounce, on: :member
   end
+
+  resources :users, only: [:destroy]
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

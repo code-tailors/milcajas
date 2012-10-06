@@ -15,7 +15,22 @@
 @import "bourbon";
 
 .steps {
-  height: 140px;
+  .thumbnail {
+    text-align:center;
+    height:150px;
+    padding:20px;
+    font-size: 18px;
+  }
+  h4 {
+  }
+}
+
+.phrase-banner {
+margin-top:30px;
+}
+
+.welcome-banner {
+  margin-top:60px;
 }
 
 .category-button {
@@ -25,3 +40,32 @@
 .non-results {
   text-align: center !important;
 }
+.container[role="main"] {
+  padding-bottom: 60px;
+}
+
+.bottom-bar {
+  padding:2px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #08C;
+  .copyright {
+    padding-top:10px;
+  }
+}
+
+.big-title {
+  font-size: 80px;
+  height: 100px;
+  line-height: 90px;
+  text-align: center;
+}
+
+#register-dropbox {
+  clear: both;
+  padding-top:5px;
+  text-align:center;
+}
+

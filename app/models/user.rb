@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
   end
 
   def update_from_omniauth(auth)
-      self.update_attributes(token: auth.credentials.token,
-      secret: auth.credentials.secret)
+      self.token= auth.credentials.token
+      self.secret= auth.credentials.secret
+      self.save
   end
 
   def self.create_from_omniauth(auth)

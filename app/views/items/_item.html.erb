@@ -1,5 +1,7 @@
 <tr id="<%= item.id %>" >
-  <td><%= item.name %> <%= item.user_id == current_user.id ? content_tag(:span, "tuyo",class: "label label-success") : nil %></td>
+  <td><%= item.user_id == current_user.id ? content_tag(:i,nil,class: "icon-flag icon-black", title: "Tuyo") : nil %></td>
+  <td><%= item.name %> </td>
+
   <td><%= item.size %></td>
   <td><%= item.mime_type %></td>
 
@@ -9,10 +11,10 @@
         <% if category = item.category %>
           <button class="btn btn-warning btn-mini category-button"><%= category.name %></button>
         <% else %>
-          <button class="btn btn-warning btn-mini category-button">Elegir</button>
+          <button class="btn btn-warning btn-mini category-button" >Elegir</button>
         <% end %>
-        <button class="btn dropdown-toggle btn-mini" data-toggle="dropdown">
-          <span class="caret"></span>
+        <button class="btn dropdown-toggle btn-mini" data-toggle="dropdown" title="Elegir categoria">
+          <span class="caret" ></span>
         </button>
         <ul class="dropdown-menu">
           <% @categories.each do |category| %>
@@ -27,6 +29,17 @@
   </td>
 
   <% mine = current_user.items.include?(item.id) %>
-  <td><%= link_to "Copiar",  mine ? "#" : copy_item_path(item.id), class: "btn btn-mini btn-info",
-        method: :post, remote: true, disabled: mine %></td>
+  <td><%= link_to mine ? "#" : copy_item_path(item.id), class: "btn btn-mini btn-primary",
+        method: :post, remote: true, disabled: mine do %>
+        <i class="icon-share icon-white"></i>
+        <span>Copiar</span>
+        <% end %>
+        &nbsp;&nbsp;
+      <%=  link_to denounce_item_path(item.id), class: "btn btn-mini btn-error",
+        title: "Denunciar en caso de spam, pirateria o cualquier irregularidad",
+        method: :post, remote: true do %>
+        <i class="icon-warning-sign icon-white"></i>
+        <span>Denunciar</span>
+      <% end %>
+  </td>
 </tr>

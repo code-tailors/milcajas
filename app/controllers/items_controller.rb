@@ -43,5 +43,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def denounce
+    @item = Item.find params[:id]
+  end
+
 
 end
