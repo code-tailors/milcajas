@@ -5,7 +5,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
-  <link rel="shortcut icon" href="/favicon.ico">
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -23,19 +23,19 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#">Mil Cajas</a>
-          <div class="nav-form pull-right">
+          <div class="nav-form pull-right current_user">
               <%- if current_user -%>
-               Hola <%= current_user.name %>!
-                <div class="btn-group">
-                  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> User</a>
-                  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
+               <span class="">Hola <%= current_user.name -%>!</span>
+                <div class="btn-group settings">
+                  <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="caret"></span></a>
+                  <ul class="dropdown-menu pull-left" id="settings-dropdown">
                     <li><%= link_to signout_path do %>
-                        <a href="#"><i class="icon-off"></i> Salir
+                        <i class="icon-off"></i> Salir
                       <% end %></li>
                     <li class="divider"></li>
-                    <li><%= link_to user_path, method: :delete, confirm: "¿Seguro que deseas borrar tu cuenta?" do %>
-                        <a href="#"><i class="icon-trash"></i> Borrar cuenta
+                    <li><%= link_to user_path(current_user), method: :delete, confirm: "¿Seguro que deseas borrar tu cuenta?" do %>
+                        <i class="icon-trash"></i> Borrar cuenta
                       <% end %></li>
                   </ul>
                 </div>
@@ -45,6 +45,15 @@
     </div>
   </div>
   <% end %>
+
+    <% flash.each do |key, value| %>
+        <div class="alert alert-block alert-<%= key == :notice ? "success" : key %>" data-dismiss="alert">
+          <a class="close">×</a>
+          <h4 class="alert-heading"><%= key.capitalize %>:</h4>
+          <%= value %>
+        </div>
+    <% end %>
+
     <div role="main" class="container">
       <%= yield %>
     </div>
