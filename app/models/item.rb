@@ -9,6 +9,10 @@ class Item < ActiveRecord::Base
 
   attr_accessible :name, :description, :path, :size, :mime_type, :user_id, :category_id, :bytes
   belongs_to :user
+
+  has_many :denounces
+  has_many :denouncers, :class_name => "User", :through => :denounces, :source => :user
+
   belongs_to :category
 
   scope :uniques, select("DISTINCT ON(checksum) id, name, path, size, mime_type, user_id, category_id").order("checksum, created_at")
@@ -31,6 +35,10 @@ class Item < ActiveRecord::Base
     else
       scoped
     end
+  end
+
+  def denounce!(user_id)
+
   end
 
 end

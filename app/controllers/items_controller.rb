@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def index
+        flash[:notice]="hola chabon como va"
     #@yours = current_user.items.uniques
     if not params[:query].blank? and query = params[:query]
       @others = Item.text_search(query,params[:page],50)
@@ -45,6 +46,7 @@ class ItemsController < ApplicationController
 
   def denounce
     @item = Item.find params[:id]
+    @item.denounce!
   end
 
 

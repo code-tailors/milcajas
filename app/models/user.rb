@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   #  :after_remove => :remove_orphans
 
   has_many :items
+  has_many :denounces
+  has_many :denounced_items, :class_name => "Item", :through => :denounces, :source => :item
 
   def reset_items
     self.update_attribute(:delta_cursor, nil)
