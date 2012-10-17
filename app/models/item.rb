@@ -38,7 +38,9 @@ class Item < ActiveRecord::Base
   end
 
   def denounce!(user_id)
-
+    Item.where(checksum: self.checksum).each do |item|
+      Denounce.create(user_id: user_id, item_id: item.id)
+    end
   end
 
 end
