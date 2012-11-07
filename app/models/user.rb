@@ -38,6 +38,9 @@ class User < ActiveRecord::Base
   def update_from_omniauth(auth)
       self.token= auth.credentials.token
       self.secret= auth.credentials.secret
+      self.last_sign_in_at = self.current_sign_in_at
+      self.current_sign_in_at = Time.now
+      self.increment(:sign_in_counter)
       self.save
   end
 
@@ -51,12 +54,14 @@ class User < ActiveRecord::Base
     end
   end
 
-
-
   def dropbox
     dbsession = DropboxSession.new(ENV['APP_KEY'], ENV['APP_SECRET'])
     dbsession.set_access_token self.token, self.secret
     DropboxClient.new dbsession, :app_folder
+  end
+
+  def block!
+    #block user
   end
 
   # private

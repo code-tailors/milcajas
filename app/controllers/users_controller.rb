@@ -5,4 +5,9 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice]="Usuario eliminado"
   end
+
+  def tos
+
+  end
+
 end

@@ -1,0 +1,25 @@
+<%= paginate items, remote: true  %>
+
+<table class="table table-condensed">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th>Nombre  </th>
+      <th>Tamaño  </th>
+      <th>Tipo    </th>
+      <th>Categoria</th>
+      <th><i class="icon-warning-sign icon-white" title="Denounces"></i>
+</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if items.empty? %>
+      <tr><td class="non-results" colspan="5"><h4>No se encontraron resultados</h4></td></tr>
+    <% else %>
+      <%= render items %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate items, remote: true  %>

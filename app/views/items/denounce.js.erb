@@ -1,0 +1,4 @@
+$("tr#<%= @item.id %>").effect("highlight", {color: '#E9163D'}, 2000).queue(function() {
+  $("tr#<%= @item.id %>").remove();
+});
+

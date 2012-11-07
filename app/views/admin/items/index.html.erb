@@ -1,9 +1,4 @@
-<%#= render :partial => "items", :object => @yours %>
-
 <div class="btn-group pull-right">
-  <%= link_to refresh_items_path, class: "btn btn-danger" do %>
-    <i class="icon-refresh">&nbsp;&nbsp;</i>Actualizar
-  <% end %>
 
 </div>
 
@@ -16,6 +11,6 @@
 <% end %>
 
 <div id="others">
-  <%= render :partial => "items", :object => @others %>
+  <%= render :partial => "items", :object => @items %>
 </div>
 

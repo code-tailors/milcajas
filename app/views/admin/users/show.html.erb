@@ -1,0 +1,50 @@
+
+<%= form_for @user, class: "form-horizontal" do |f| %>
+  <div class="control-group">
+    <%= f.label :uid,  "UID", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :uid, readonly: true  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, "Email", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email, readonly: true  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :current_sign_in_at, "Current Sign In at", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :current_sign_in_at, readonly: true %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :last_sign_in_at, "Last Sign In at", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :last_sign_in_at, readonly: true  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :sign_in_counter, "Sign In Counter", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :sign_in_counter, readonly: true  %>
+    </div>
+  </div>
+
+  <%= link_to "Remover", admin_user_path(@user.id), method: :delete, class: "btn btn-danger", confirm: t('user.actions.ask.remove') %>
+  <%= label_tag :blocked, t('user.actions.block'), class: 'inline' %>
+
+  <%= label_tag :blocked, class: 'radio inline' do %>
+    <%= radio_button_tag :user, :blocked, 'on' %>
+    <span>On</span>
+  <% end %>
+  <%= label_tag :blocked, class: 'radio inline' do %>
+    <%= radio_button_tag :user, :blocked, 'off' %>
+    <span>Off</span>
+  <% end %>
+
+<% end %>

@@ -2,17 +2,17 @@ class SessionsController < ApplicationController
 
   def new
     dbsession = get_dropbox_session
-    if dbsession.authorized?
-      redirect_to index_items_url, notice: "Signed in!"
-    else
-      redirect_to "/auth/dropbox"
-    end
+    redirect_to "/auth/dropbox"
   end
 
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to refresh_items_url, notice: "Signed in!"
+    unless user.tos
+      redirect_to new_tos_path, notice: "Signed in!"
+    else
+      redirect_to refresh_items_url, notice: "Signed in!"
+    end
   end
 
   def destroy

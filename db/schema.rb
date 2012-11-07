@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017232320) do
+ActiveRecord::Schema.define(:version => 20121030131829) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20121017232320) do
     t.integer "user_id"
     t.integer "item_id"
   end
+
+  add_index "denounces", ["user_id", "item_id"], :name => "index_denounces_on_user_id_and_item_id", :unique => true
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
@@ -59,8 +61,12 @@ ActiveRecord::Schema.define(:version => 20121017232320) do
     t.string   "country"
     t.string   "checksum"
     t.string   "delta_cursor"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at"
+    t.integer  "sign_in_counter",    :default => 0
+    t.boolean  "tos",                :default => false
   end
 
   add_index "users", ["uid"], :name => "index_users_on_uid"

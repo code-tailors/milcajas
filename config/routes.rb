@@ -8,6 +8,16 @@ Sharebox::Application.routes.draw do
 
   resources :users, only: [:destroy]
 
+  resource :tos, only: [:new, :create]
+
+  namespace :admin do
+    match "/" => redirect("/admin/items")
+    resources :items
+    resources :users, only: [:show, :destroy, :show] do
+      post :block, on: :member
+    end
+  end
+
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'

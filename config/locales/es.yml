@@ -1,0 +1,13 @@
+es:
+  models:
+    user: "Usuario"
+
+  user:
+    destroyed: "Usuario removido"
+    blocked: "Usuario bloqueado"
+
+    actions:
+      block: "Bloquear"
+      ask:
+        remove: "¿Desea borrar al usuario?"
+        block: "¿Desea bloquear al usuario?"

@@ -1,0 +1,9 @@
+  <%= link_to "#", class: "btn dropdown-toggle btn-danger", data: {toggle: "dropdown"} do %>
+    <span class="caret"></span>
+  <% end %>
+  <ul class="dropdown-menu">
+    <li><%= link_to reset_items_path, method: :delete do %>
+        <i class="icon-repeat">&nbsp;&nbsp;</i>Resetear
+      <% end %>
+    </li>
+  </ul>
