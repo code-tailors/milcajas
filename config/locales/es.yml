@@ -11,3 +11,8 @@ es:
       ask:
         remove: "¿Desea borrar al usuario?"
         block: "¿Desea bloquear al usuario?"
+
+views:
+    welcome:
+      index:
+        banner: "Compartir y buscar lo que te gusta nunca fue más fácil"

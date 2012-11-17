@@ -12,3 +12,14 @@ en:
         remove: "Are you sure you want to delete the user?"
         block: "Are you sure you want to block the user?"
 
+  views:
+    welcome:
+      index:
+        banner: "Compartir y buscar lo que te gusta nunca fue más fácil"
+        step1:  "Accede con tu cuenta de Dropbox y autoriza a Mil Cajas"
+        step2: "Comparti a través de la carpeta MilCajas en tu Dropbox"
+        step3: "Busca lo que te guste y copialo con un solo click"
+        search: "Buscar en Mil Cajas"
+        access: "Acceder a Mil Cajas"
+        yet_no_dropbox: "Si aún no tenes Dropbox"
+        here: "aquí"
