@@ -1,1 +1,6 @@
 <%= render :file => "#{Rails.root}/public/tos_es.html" %>
+
+<%= form_tag tos_path do %>
+  <%= checkbox_tag t("views.tos.submit")%>
+  <%= submit_tag t("views.tos.submit"), class: "btn" %>
+<% end %>

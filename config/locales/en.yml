@@ -23,3 +23,5 @@ en:
         access: "Acceder a Mil Cajas"
         yet_no_dropbox: "Si aún no tenes Dropbox"
         here: "aquí"
+    tos:
+      submit: "Continuar"
