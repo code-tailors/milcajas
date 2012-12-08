@@ -1,7 +1,7 @@
 //= require_self
 //= require_dir .
-//= require bootswatch/loader
 //= require bootstrap_and_overrides
+//= require bootswatch/loader
 @import "bourbon";
 
 .steps {
@@ -86,4 +86,5 @@
 }
 span.denounce {
   font-size:11px;
+  color: #C0C0C0;
 }
