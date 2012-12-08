@@ -49,11 +49,9 @@
       <div role="main" class="container">
         <% flash.each do |key, value| %>
           <div class="offset4 span4 alert  alert-<%= key == :notice ? "success" : key %>" data-dismiss="alert">
-            <a class="close">×</a>
-            <%= value %>
-          </div>
+            <a class="close">×</a><%= value.strip %></div>
           <div class="clearfix"></div>
-      <% end %>
+        <% end %>
 
 
       <%= yield %>

@@ -1,11 +1,8 @@
 class AddCategories < ActiveRecord::Migration
   def up
-    Category.create(name: "video")
-    Category.create(name: "musica")
-    Category.create(name: "libro")
-    Category.create(name: "foto")
-    Category.create(name: "comic")
-    Category.create(name: "otro")
+    Category::CATEGORIES.each do |name|
+      Category.create(name: name)
+    end
   end
 
   def down

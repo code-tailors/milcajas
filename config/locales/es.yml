@@ -11,8 +11,33 @@ es:
       ask:
         remove: "¿Desea borrar al usuario?"
         block: "¿Desea bloquear al usuario?"
-
-views:
+  views:
     welcome:
       index:
         banner: "Compartir y buscar lo que te gusta nunca fue más fácil"
+        step1:  "Accede con tu cuenta de Dropbox y autoriza a Mil Cajas"
+        step2: "Comparti a través de la carpeta MilCajas en tu Dropbox"
+        step3: "Busca lo que te guste y copialo con un solo click"
+        search: "Buscar en Mil Cajas"
+        access: "Acceder a Mil Cajas"
+        yet_no_dropbox: "Si aún no tenes Dropbox"
+        here: "aquí"
+    tos:
+      accept: "Acepto los términos y condiciones"
+      submit: "Continuar"
+      must_accept: "Es obligatorio aceptar los términos y condiciones"
+
+    items:
+      choose: "Elegir"
+      denounce: "Denunciar"
+      denounce_tip: "Denunciar en caso de spam, pirateria o cualquier irregularidad"
+      copy_tip: "Copiar a tu Dropbox"
+      copy: "Copiar"
+      choose_category: "Elegir categoria"
+    category:
+      video: "Video"
+      comic: "Comic"
+      book:  "Libro"
+      music: "Musica"
+      other: "Otros"
+      photo: "Foto"

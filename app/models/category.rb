@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  CATEGORIES= ["photo","video","movie","comic", "book", "other"]
   attr_accessible :name
   has_many :items, :after_add => :set_category_as
 

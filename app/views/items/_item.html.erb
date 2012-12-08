@@ -11,16 +11,17 @@
     <% if item.user_id == current_user.id %>
       <div class="btn-group">
         <% if category = item.category %>
-          <button class="btn btn-warning btn-mini category-button"><%= category.name %></button>
+          <button class="btn btn-warning btn-mini category-button" ><%= t("views.items.category.#{category.name}") %></button>
         <% else %>
-          <button class="btn btn-warning btn-mini category-button" >Elegir</button>
+          <button class="btn btn-warning btn-mini category-button" ><%= t("views.items.choose") %></button>
         <% end %>
-        <button class="btn dropdown-toggle btn-mini" data-toggle="dropdown" title="Elegir categoria">
+        <button class="btn dropdown-toggle btn-mini" data-toggle="dropdown" title="<%= t("views.items.choose_category") %>">
           <span class="caret" ></span>
         </button>
         <ul class="dropdown-menu">
           <% @categories.each do |category| %>
-            <li><%= link_to category.name, '#', class: 'js-category-dropdown', data: {value: category.id} %></li>
+            <li><%= link_to t("views.items.category.#{category.name}"), '#', class: 'js-category-dropdown', 
+            data: {value: category.id} %></li>
           <% end %>
         </ul>
       </div>
@@ -32,16 +33,16 @@
 
   <% mine = current_user.items.include?(item.id) %>
   <td><%= link_to mine ? "#" : copy_item_path(item.id), class: "btn btn-mini btn-primary",
+        title: t("views.items.copy_tip"),
         method: :post, remote: true, disabled: mine do %>
-        <i class="icon-share icon-white"></i>
-        <span>Copiar</span>
+          <i class="icon-copy icon-white"></i>
+          <span><%= t("views.items.copy") %></span>
         <% end %>
         &nbsp;&nbsp;
-      <%=  link_to denounce_item_path(item.id), class: "btn btn-mini btn-error",
-        title: "Denunciar en caso de spam, pirateria o cualquier irregularidad",
+      <%=  link_to denounce_item_path(item.id), 
+        title: t("views.items.denounce_tip"),
         method: :post, remote: true do %>
-        <i class="icon-warning-sign icon-white"></i>
-        <span>Denunciar</span>
+          <span class=denounce"><%= t("views.items.denounce") %></span>
       <% end %>
   </td>
 </tr>

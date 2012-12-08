@@ -15,13 +15,29 @@ en:
   views:
     welcome:
       index:
-        banner: "Compartir y buscar lo que te gusta nunca fue más fácil"
-        step1:  "Accede con tu cuenta de Dropbox y autoriza a Mil Cajas"
-        step2: "Comparti a través de la carpeta MilCajas en tu Dropbox"
-        step3: "Busca lo que te guste y copialo con un solo click"
-        search: "Buscar en Mil Cajas"
-        access: "Acceder a Mil Cajas"
-        yet_no_dropbox: "Si aún no tenes Dropbox"
-        here: "aquí"
+        banner: "Share and search what you most like never was easiest"
+        step1:  "Access with your Dropbox account and authorize MilCajas"
+        step2: "Share through Mil Cajas folder in your Dropbox"
+        step3: "Search what you like and copy in just one click"
+        search: "Search in Mil Cajas"
+        access: "Access Mil Cajas"
+        yet_no_dropbox: "If you still don't have Dropbox"
+        here: "here"
     tos:
-      submit: "Continuar"
+      accept: "I accept the terms and conditions"
+      submit: "Continue"
+      must_accept: "You must accept the terms and conditions before continue"
+    items:
+      choose: "Choose"
+      denounce: "Denounce"
+      denounce_tip: "Denounce in case of span, piracy or any other irregularity"
+      copy_tip: "Copy to your Dropbox"
+      copy: "Copy"
+      choose_category: "Choose category"
+    category:
+      video: "Video"
+      comic: "Comic"
+      book:  "Book"
+      music: "Music"
+      other: "Others"
+      photo: "Photo"
