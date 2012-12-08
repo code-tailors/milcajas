@@ -13,13 +13,20 @@ en:
         block: "Are you sure you want to block the user?"
 
   views:
+    layout:
+      hi: "Hi"
+      sure_remove: "Are you sure you want to remove your account?"
+      remove_account: "Remove account"
+      developed_by: "Developed by"
+      exit: "Logout"
+
     welcome:
       index:
         banner: "Share and search what you most like never was easiest"
         step1:  "Access with your Dropbox account and authorize MilCajas"
         step2: "Share through Mil Cajas folder in your Dropbox"
         step3: "Search what you like and copy in just one click"
-        search: "Search in Mil Cajas"
+        search: "Enter Mil Cajas"
         access: "Access Mil Cajas"
         yet_no_dropbox: "If you still don't have Dropbox"
         here: "here"
@@ -34,6 +41,14 @@ en:
       copy_tip: "Copy to your Dropbox"
       copy: "Copy"
       choose_category: "Choose category"
+      name: "Name"
+      size: "Size"
+      type: "Type"
+      category: "Category"
+      action: "Action"
+      search: "Search"
+      refresh: "Refresh"
+
     category:
       video: "Video"
       comic: "Comic"

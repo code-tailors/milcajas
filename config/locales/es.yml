@@ -1,3 +1,4 @@
+# encoding: utf-8
 es:
   models:
     user: "Usuario"
@@ -12,13 +13,20 @@ es:
         remove: "¿Desea borrar al usuario?"
         block: "¿Desea bloquear al usuario?"
   views:
+    layout:
+      hi: "Hola"
+      sure_remove: "¿Seguro que deseas borrar tu cuenta?"
+      remove_account: "Borrar cuenta"
+      developed_by: "Desarrollado por"
+      exit: "Salir"
+
     welcome:
       index:
         banner: "Compartir y buscar lo que te gusta nunca fue más fácil"
         step1:  "Accede con tu cuenta de Dropbox y autoriza a Mil Cajas"
         step2: "Comparti a través de la carpeta MilCajas en tu Dropbox"
         step3: "Busca lo que te guste y copialo con un solo click"
-        search: "Buscar en Mil Cajas"
+        search: "Entrar en Mil Cajas"
         access: "Acceder a Mil Cajas"
         yet_no_dropbox: "Si aún no tenes Dropbox"
         here: "aquí"
@@ -34,6 +42,13 @@ es:
       copy_tip: "Copiar a tu Dropbox"
       copy: "Copiar"
       choose_category: "Elegir categoria"
+      name: "Nombre"
+      size: "Tamaño"
+      type: "Tipo"
+      category: "Categoria"
+      search: "Buscar"
+      refresh: "Actualizar"
+
     category:
       video: "Video"
       comic: "Comic"

@@ -25,17 +25,17 @@
         <%= link_to "Mil Cajas", root_path, class: "brand" %>
           <div class="nav-form pull-right current_user">
               <% if current_user %>
-               <span class="">Hola <%= current_user.name %>!</span>
+                <span class=""><%= t("views.layout.hi") %> <%= current_user.name %>!</span>
                 <div class="btn-group settings">
                   <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="caret"></span></a>
                   <ul class="dropdown-menu pull-left" id="settings-dropdown">
                     <li><%= link_to signout_path do %>
-                        <i class="icon-off"></i> Salir
+                        <i class="icon-off"></i> <%= t("views.layout.exit") %>
                       <% end %></li>
                     <li class="divider"></li>
-                    <li><%= link_to user_path(current_user), method: :delete, confirm: "¿Seguro que deseas borrar tu cuenta?" do %>
-                        <i class="icon-trash"></i> Borrar cuenta
+                    <li><%= link_to user_path(current_user), method: :delete, confirm: t("views.layout.sure_remove")  do %>
+                        <i class="icon-trash"></i> <%= t("views.layout.remove_account") %>
                       <% end %></li>
                   </ul>
                 </div>
@@ -64,7 +64,7 @@
           <li><div class="copyright pull-left">© 2012 MilCajas</div></li>
           <li><div class="tos"><%#= link_to "Terms of Service", "#" %></div></li>
           <li>
-          <div class="me pull-right">Developed by&nbsp;&nbsp; <%= link_to image_tag("http://www.gravatar.com/avatar/0abb865917333b287e76cebd2debdca5.png", height: '40px', width: '40px', class: 'img-circle'), "https://github.com/blanchma/" %></div>
+          <div class="me pull-right"><%= t("views.layout.developed_by") %>&nbsp;&nbsp; <%= link_to image_tag("http://www.gravatar.com/avatar/0abb865917333b287e76cebd2debdca5.png", height: '40px', width: '40px', class: 'img-circle'), "https://github.com/blanchma/" %></div>
         </li>
         </ul>
       </div>
