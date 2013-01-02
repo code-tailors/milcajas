@@ -13,6 +13,7 @@ en:
         block: "Are you sure you want to block the user?"
 
   views:
+    home: "Return to Home"
     layout:
       hi: "Hi"
       sure_remove: "Are you sure you want to remove your account?"

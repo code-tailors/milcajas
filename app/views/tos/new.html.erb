@@ -1,4 +1,4 @@
-<%= render :file => "#{Rails.root}/public/tos_es.html" %>
+<%= render :file => "#{Rails.root}/public/tos_#{I18n.locale}.html" %>
 
 <%= form_tag tos_path do %>
   <%= label_tag nil, class: "checkbox" do %>

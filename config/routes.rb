@@ -8,7 +8,7 @@ Sharebox::Application.routes.draw do
 
   resources :users, only: [:destroy]
 
-  resource :tos, only: [:new, :create]
+  resource :tos, only: [:new, :create, :show]
 
   namespace :admin do
     match "/" => redirect("/admin/items")
