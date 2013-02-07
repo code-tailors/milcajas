@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_user!
-    redirect_to root_path unless session[:user_id]
+    redirect_to root_path unless current_user
   end
 
   def set_locale
