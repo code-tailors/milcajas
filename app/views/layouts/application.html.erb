@@ -22,7 +22,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <%= link_to "Mil Cajas", root_path, class: "brand" %>
+        <%= link_to  root_path, class: "brand" do %>
+          <span class="main-title">Mil Cajas</span>
+          <span class="beta">Beta</p>
+        <% end %>
           <div class="nav-form pull-right current_user">
               <% if current_user %>
                 <span class=""><%= t("views.layout.hi") %> <%= current_user.name %>!</span>

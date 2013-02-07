@@ -53,6 +53,7 @@ en:
       action: "Action"
       search: "Search"
       refresh: "Refresh"
+      copied: "File copied to your MilCajas's folder"
 
     category:
       video: "Video"

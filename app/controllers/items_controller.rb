@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     from_user_db = item.user.dropbox
     copy_ref = from_user_db.create_copy_ref(item.path)['copy_ref']
     current_user.dropbox.add_copy_ref(item.name, copy_ref)
-    head :ok
+    flash[:notice]=t("views.items.copied")
   end
 
   #TODO: Chequear propiedad del item antes de actualizar

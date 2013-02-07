@@ -2,4 +2,5 @@ $("tr#<%= @item.id %>").effect("highlight", {color: '#E9163D'}, 2000).queue(func
   $("tr#<%= @item.id %>").remove();
 });
 $("#denounce").modal("hide")
+$("#alert-box").remove()
 $("#main-container").prepend("<%= escape_javascript(render_flash(flash))  %>")

@@ -53,6 +53,7 @@ es:
       category: "Categoria"
       search: "Buscar"
       refresh: "Actualizar"
+      copied: "El archivo fue copiado a tu carpeta MilCajas"
 
     category:
       video: "Video"
