@@ -19,3 +19,13 @@
   <%= render :partial => "items", :object => @others %>
 </div>
 
+<div id="denounce" class="modal hide fade">
+  <div class="modal-body">
+    <p><%= t("views.items.denounce_text")%></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("views.cancel") %></button>
+    <button id="denounce-yes" class="btn btn-primary"><%= t("views.yes") %></button>
+  </div>
+</div>
+

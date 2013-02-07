@@ -45,6 +45,7 @@ class ItemsController < ApplicationController
 
   def denounce
     @item = Item.find params[:id]
+    flash.now[:notice]="File denounced!"
     @item.denounce!(current_user.id)
   end
 end

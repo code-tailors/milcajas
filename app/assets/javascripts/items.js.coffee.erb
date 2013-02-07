@@ -13,4 +13,20 @@ $(document).ready ->
       })
   )
 
+  $(".button-denounce").on("click", (event) ->
+    $("#denounce").off("shown")
+    $("#denounce-yes").off("click")
+
+    $("#denounce").on("shown", ->
+      $("#denounce-yes").on("click", -> 
+        id = $(event.currentTarget).data("id")
+        $.ajax({
+          url: '/caja/' + id + '/denounce', 
+          type: 'POST',
+          dataType: 'script'
+          })
+      )
+    )
+  )
+
   $("#search_field").focus()

@@ -14,6 +14,9 @@ en:
 
   views:
     home: "Return to Home"
+    cancel: Cancel
+    yes: "Yes, I'm sure"
+
     layout:
       hi: "Hi"
       sure_remove: "Are you sure you want to remove your account?"
@@ -38,6 +41,7 @@ en:
     items:
       choose: "Choose"
       denounce: "Denounce"
+      denounce_text: "Are you sure you want to denounce this file?"
       denounce_tip: "Denounce in case of span, piracy or any other irregularity"
       copy_tip: "Copy to your Dropbox"
       copy: "Copy"
@@ -57,3 +61,5 @@ en:
       music: "Music"
       other: "Others"
       photo: "Photo"
+
+    site_purpose: The purpose of MilCajas is to share all kind of stuff with licence free or without any kind of author restriction. The users violating this restriction will be expelled.

@@ -39,9 +39,9 @@
           <span><%= t("views.items.copy") %></span>
         <% end %>
         &nbsp;&nbsp;
-      <%=  link_to denounce_item_path(item.id), 
-        title: t("views.items.denounce_tip"),
-        method: :post, remote: true do %>
+      <%=  link_to "#denounce",#denounce_item_path(item.id), 
+        title: t("views.items.denounce_tip"), class: "button-denounce",
+        data: {toggle: "modal", id: item.id} do %>
           <span class="denounce"><%= t("views.items.denounce") %></span>
       <% end %>
   </td>

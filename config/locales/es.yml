@@ -14,6 +14,9 @@ es:
         block: "¿Desea bloquear al usuario?"
   views:
     home: Volver a Inicio
+    cancel: Cancelar
+    yes: Si, estoy seguro
+
     layout:
       hi: "Hola"
       sure_remove: "¿Seguro que deseas borrar tu cuenta?"
@@ -40,6 +43,7 @@ es:
       choose: "Elegir"
       denounce: "Denunciar"
       denounce_tip: "Denunciar en caso de spam, pirateria o cualquier irregularidad"
+      denounce_text: "¿Está seguro que desea denunciar este archivo?"
       copy_tip: "Copiar a tu Dropbox"
       copy: "Copiar"
       choose_category: "Elegir categoria"
@@ -57,3 +61,5 @@ es:
       music: "Musica"
       other: "Otros"
       photo: "Foto"
+
+    site_purpose: El proposito de MilCajas es compartir material con licencia libre, sin restricción de derechos de autor. Los usuarios que violen esta restricción serán expulsados.
