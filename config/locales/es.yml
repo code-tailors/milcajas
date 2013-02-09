@@ -53,7 +53,9 @@ es:
       category: "Categoria"
       search: "Buscar"
       refresh: "Actualizar"
-      copied: "El archivo fue copiado a tu carpeta MilCajas"
+      copied: "El archivo fue copiado a Dropbox/Apps/MilCajas"
+      copy_fail: "Algo salió mal. Intenta más tarde. Tute va revisar esto personalmente"
+      exists: "El archivo ya existe"
 
     category:
       video: "Video"

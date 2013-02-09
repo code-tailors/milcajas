@@ -53,7 +53,9 @@ en:
       action: "Action"
       search: "Search"
       refresh: "Refresh"
-      copied: "File copied to your MilCajas's folder"
+      copied: "File copied to your Dropbox/Apps/MilCajas"
+      copy_fail: "Something goes wrong. Please try later. Tute is going to check this personally"
+      exists: "File already exists"
 
     category:
       video: "Video"

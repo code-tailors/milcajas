@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '~> 3.2'
 gem 'dropbox-sdk', git: "git://github.com/blanchma/dropbox-ruby-sdk.git", require: "dropbox_sdk"
 gem 'omniauth'
 gem 'omniauth-dropbox'
@@ -9,6 +9,7 @@ gem 'pg_search'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'bourbon'
+gem "airbrake"
 #gem 'twitter-bootswatch-rails-helpers'
 
 

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     #:after_add => :cuack,
   #  :after_remove => :remove_orphans
 
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :denounces
   has_many :denounced_items, :class_name => "Item", :through => :denounces, :source => :item
 

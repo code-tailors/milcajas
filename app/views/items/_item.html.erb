@@ -1,7 +1,7 @@
 <% return if item.denouncer_ids.include?(current_user.id) %>
 
 <tr id="<%= item.id %>" >
-  <td><%= item.user_id == current_user.id ? content_tag(:i,nil,class: "icon-flag icon-black", title: "Tuyo") : nil %></td>
+  <td><%#= item.user_id == current_user.id ? content_tag(:i,nil,class: "icon-flag icon-black", title: "Tuyo") : nil %></td>
   <td><%= item.name %> </td>
 
   <td><%= item.size %></td>
