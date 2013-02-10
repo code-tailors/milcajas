@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       flash[:notice]=t("views.items.exists")
     rescue DropboxError => db_error
       Airbrake.notify(db_error)
-      logger.error "[Copy] #{e.message} #{e.backtrace.join("\n")[0..20]}"
+      logger.error "[Copy] #{db_error.message} #{db_error.backtrace.join("\n")[0..20]}"
       if db_error.message.include?"already exists"
         flash[:notice]=t("views.items.exists")
       else
