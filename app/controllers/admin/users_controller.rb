@@ -14,6 +14,19 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.all
   end
 
+  def refresh
+    User.all.each do |user|
+      begin
+        user.dropbox.account_info
+      rescue
+        user.destroy
+      end
+
+      user.refresh_items
+    end
+    redirect_to controller: "admin/items", action: :index
+  end
+
   def block
     @user = User.find params[:id]
     @user.block!

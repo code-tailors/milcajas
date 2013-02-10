@@ -28,6 +28,7 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'random_data'
   gem 'rails-dev-tweaks', '~> 0.6.1'
+  gem 'bullet'
 end
 
 group :test do

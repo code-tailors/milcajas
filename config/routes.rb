@@ -12,9 +12,13 @@ Sharebox::Application.routes.draw do
 
   namespace :admin do
     match "/" => redirect("/admin/items")
-    resources :items
+    resources :items, only: [:index] do
+      post :refresh, on: :collection
+    end
+
     resources :users, only: [:show, :destroy, :show] do
       post :block, on: :member
+      post :refresh, on: :collection
     end
   end
 

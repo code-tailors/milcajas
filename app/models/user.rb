@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :denounces
   has_many :denounced_items, :class_name => "Item", :through => :denounces, :source => :item
 
-  def reset_items
+  def reset_items!
     self.update_attribute(:delta_cursor, nil)
     self.items.destroy_all
     refresh_items
